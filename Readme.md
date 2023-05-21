@@ -19,5 +19,6 @@ Vagrant-стенд c PAM
 6. Добавляем пользователей vagrant,root и otusadm в группу admin:
   usermod otusadm -a -G admin && usermod root -a -G admin && usermod vagrant -a -G admin
   *в первый раз была допушена синтаксическая ошибка вместо пользователя otusadm был введен пользователь ptusadm как результат была выведена ошибка "usermod : user 'ptusadm' does not exist" (пользователь ptusadm не существует)
+  
 ![изображение](https://github.com/AlexanderSerg-jun/vm_pam/assets/85576634/887d8f8a-529c-40e8-ac2c-42ad09483735)
 

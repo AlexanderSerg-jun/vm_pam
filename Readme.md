@@ -41,15 +41,13 @@ ssh otus@192.168.57.10
 
 ![Снимок экрана от 2023-05-21 14-52-29](https://github.com/AlexanderSerg-jun/vm_pam/assets/85576634/25dd16fa-7d6e-486f-9400-6e1dfc6bbda4)
 
-#!/bin/bash
-if [ $(date +%a) = "Sat"] || [ $(date +%a) = "Sun"]; then
-if getent group admin | grep -qw "$PAM_USER"; then
-        exit 0
-      else
-	exit 1
-    fi
-else 
-   exit 0
-fi
+Содержание срипта ( состоящиего из двух условий):
+1.Первое условие: если день недели суббота или воскресенье (if [ $(date +%a) = "Sat" ] || [ $(date +%a) = "Sun" ]; then)
+2.Второе условие: проверка входит ли пользователь в группу admin (if getent group admin | grep -qw "$PAM_USER"; then)
+3.Если пользователь входит в группу admin, то он может подключиться
+4.Иначе ошибка (не сможет подключиться)
+5.Если день не выходной, то подключиться может любой пользователь
+
+![Снимок экрана от 2023-05-21 15-01-42](https://github.com/AlexanderSerg-jun/vm_pam/assets/85576634/8e983c50-32b9-45c2-b534-65c7c9d5b026)
 
 
